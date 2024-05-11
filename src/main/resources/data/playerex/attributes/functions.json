@@ -33,9 +33,13 @@
             	"behaviour": "MULTIPLY",
             	"value": 0.02
             },
-            "projectile_damage:generic": {
+            "ranged_weapon:damage": {
             	"behaviour": "ADDITION",
             	"value": 0.25
+            },
+            "ranged_weapon:haste": {
+                "behaviour": "ADDITION",
+                "value": 0.2
             },
             "playerex:melee_crit_damage": {
             	"behaviour": "ADDITION",

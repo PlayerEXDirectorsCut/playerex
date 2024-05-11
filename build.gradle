@@ -1,6 +1,6 @@
 //https://maven.ladysnake.org/releases
 plugins {
-	id 'fabric-loom' version '1.1-SNAPSHOT'
+	id 'fabric-loom' version '1.5-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -69,8 +69,9 @@ dependencies {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
 	
-	modImplementation "maven.modrinth:projectile-damage-attribute:${project.projectile_damage_attribute_version}-fabric"
 	modImplementation include("eu.pb4:placeholder-api:${project.placeholder_api}")
+
+	modImplementation "maven.modrinth:ranged-weapon-api:${project.ranged_weapon_api_version}"
 	
 	implementation 'net.objecthunter:exp4j:0.4.8'
 	include 'net.objecthunter:exp4j:0.4.8'

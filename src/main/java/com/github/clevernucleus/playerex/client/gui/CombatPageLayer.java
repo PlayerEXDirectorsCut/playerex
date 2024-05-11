@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.function.Supplier;
 
 import com.github.clevernucleus.dataattributes_dc.api.DataAttributesAPI;
+import com.github.clevernucleus.playerex.api.EntityAttributeSupplier;
 import com.github.clevernucleus.playerex.api.ExAPI;
 import com.github.clevernucleus.playerex.api.client.ClientUtil;
 import com.github.clevernucleus.playerex.api.client.PageLayer;
@@ -13,6 +14,7 @@ import com.github.clevernucleus.playerex.client.PlayerExClient;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.util.math.MatrixStack;
@@ -21,7 +23,8 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.projectile_damage.api.EntityAttributes_ProjectileDamage;
+
+import net.fabric_extras.ranged_weapon.api.EntityAttributes_RangedWeapon;
 
 @Environment(EnvType.CLIENT)
 public class CombatPageLayer extends PageLayer {
@@ -183,8 +186,9 @@ public class CombatPageLayer extends PageLayer {
 
 			return tooltip;
 		}, 9, 136));
-		COMPONENTS.add(RenderComponent.of(() -> EntityAttributes_ProjectileDamage.GENERIC_PROJECTILE_DAMAGE, value -> {
-			double disp = ClientUtil.displayValue(() -> EntityAttributes_ProjectileDamage.GENERIC_PROJECTILE_DAMAGE,
+
+		COMPONENTS.add(RenderComponent.of(() -> EntityAttributes_RangedWeapon.DAMAGE.attribute, value -> {
+			double disp = ClientUtil.displayValue(() -> EntityAttributes_RangedWeapon.DAMAGE.attribute,
 					value);
 			return Text
 					.translatable("playerex.gui.page.combat.text.ranged_damage", ClientUtil.FORMATTING_2.format(disp))
@@ -199,6 +203,7 @@ public class CombatPageLayer extends PageLayer {
 
 			return tooltip;
 		}, 93, 37));
+
 		COMPONENTS.add(RenderComponent.of(ExAPI.RANGED_CRIT_DAMAGE, value -> {
 			double disp = 100.0D + ClientUtil.displayValue(ExAPI.RANGED_CRIT_DAMAGE, value);
 			return Text.translatable("playerex.gui.page.combat.text.ranged_crit_damage",
@@ -227,6 +232,20 @@ public class CombatPageLayer extends PageLayer {
 
 			return tooltip;
 		}, 93, 59));
+		COMPONENTS.add(RenderComponent.of(() -> EntityAttributes_RangedWeapon.HASTE.attribute, value -> {
+			double disp = ClientUtil.displayValue(() -> EntityAttributes_RangedWeapon.HASTE.attribute, value);
+			return Text.translatable("playerex.gui.page.combat.text.ranged_haste",
+					ClientUtil.FORMATTING_2.format(disp - EntityAttributes_RangedWeapon.HASTE.attribute.getDefaultValue())).formatted(Formatting.DARK_GRAY);
+		}, value -> {
+			List<Text> tooltip = new ArrayList<Text>();
+
+			tooltip.add((Text.translatable("playerex.gui.page.combat.tooltip.ranged_haste[0]"))
+					.formatted(Formatting.GRAY));
+			tooltip.add((Text.translatable("playerex.gui.page.combat.tooltip.ranged_haste[1]"))
+					.formatted(Formatting.GRAY));
+
+			return tooltip;
+		}, 93, 70));
 		COMPONENTS.add(RenderComponent.of(ExAPI.ATTACK_RANGE, value -> {
 			return Text.translatable("playerex.gui.page.combat.text.attack_range",
 					ClientUtil.FORMATTING_2.format(3.0F + value)).formatted(Formatting.DARK_GRAY);
