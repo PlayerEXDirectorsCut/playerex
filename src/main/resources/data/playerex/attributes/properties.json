@@ -62,6 +62,9 @@
         },
         "playerex:ranged_crit_chance": {
             "percentage": "100.0"
+        },
+        "ranged_weapon:haste": {
+            "percentage": "1.0"
         }
     }
 }

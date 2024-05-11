@@ -64,6 +64,7 @@ public final class ExAPI {
 	public static final EntityAttributeSupplier WITHER_RESISTANCE = define("wither_resistance");
 	/** Implemented for the player only. */
 	public static final EntityAttributeSupplier BREAKING_SPEED = define("breaking_speed");
+
 	/**
 	 * If JamieWhiteShirt reach-entity-attributes exist then this accesses the reach
 	 * distance attribute.

@@ -55,24 +55,24 @@ jobs:
         if: github.ref == 'refs/heads/${{ env.BRANCH_PREFIX }}/main'
         uses: Kir-Antipov/mc-publish@v3.3
         with:
-          curseforge-id: 409221
+          curseforge-id: 958325
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           curseforge-dependencies: |
-            fabric-api@0.76.0+1.19.2(required){modrinth:P7dR8mSH}{curseforge:306612}#(ignore:github)
-            data-attributes@1.4.6+1.19.2(required){modrinth:wFyCClLQ}{curseforge:514734}#(ignore:github)
-            cloth-config@8.2.88(required){modrinth:9s6osm5g}{curseforge:348521}#(ignore:github)
-            projectile-damage-attribute@3.2.1+1.19-fabric(embedded){modrinth:AOyJhFvl}{curseforge:643780}#(ignore:github)
-            cardinal-components@5.0.2(embedded){modrinth:K01OU20C}{curseforge:318449}#(ignore:github)
+            fabric-api@0.83.0+1.20.1(required){modrinth:P7dR8mSH}{curseforge:306612}#(ignore:github)
+            data-attributes-directors-cut@1.6.0+1.20.1(required){modrinth:KCGxOJsE}{curseforge:955929}#(ignore:github)
+            cloth-config@11.1.118(required){modrinth:9s6osm5g}{curseforge:348521}#(ignore:github)
+            ranged_weapon_api@1.1.0+1.20.1(embedded){modrinth:AqaIIO6D}{curseforge:962162}#(ignore:github)
+            cardinal-components@5.4.0(embedded){modrinth:K01OU20C}{curseforge:318449}#(ignore:github)
 
-          modrinth-id: o5GUN4b1
+          modrinth-id: 4UKlJSdk
           modrinth-token: "${{ secrets.MODRINTH_TOKEN }}"
           modrinth-dependencies: |
-            fabric-api@0.76.0+1.19.2(required){modrinth:P7dR8mSH}{curseforge:306612}#(ignore:github)
-            data-attributes@1.4.6+1.19.2(required){modrinth:wFyCClLQ}{curseforge:514734}#(ignore:github)
-            cloth-config@8.2.88(required){modrinth:9s6osm5g}{curseforge:348521}#(ignore:github)
-            projectile-damage-attribute@3.2.1+1.19-fabric(embedded){modrinth:AOyJhFvl}{curseforge:643780}#(ignore:github)
-            cardinal-components@5.0.2(embedded){modrinth:K01OU20C}{curseforge:318449}#(ignore:github)
-            offline-player-cache@0.6.4(embedded){modrinth:kD9Vl1lR}#(ignore:curseforge)#(ignore:github)
+            fabric-api@0.83.0+1.20.1(required){modrinth:P7dR8mSH}{curseforge:306612}#(ignore:github)
+            data-attributes-directors-cut@1.6.0+1.20.1(required){modrinth:KCGxOJsE}{curseforge:955929}#(ignore:github)
+            cloth-config@11.1.118(required){modrinth:9s6osm5g}{curseforge:348521}#(ignore:github)
+            ranged_weapon_api@1.1.0+1.20.1(embedded){modrinth:AqaIIO6D}{curseforge:962162}#(ignore:github)
+            cardinal-components@5.4.0(embedded){modrinth:K01OU20C}{curseforge:318449}#(ignore:github)
+            opc-directors-cut@0.6.5(embedded){modrinth:oLPaySSb}#(ignore:curseforge)#(ignore:github)
           # Modrinth has issues accepting javadocs right now
 
           github-tag: "${{ steps.mod_version.outputs.mod_version }}"
