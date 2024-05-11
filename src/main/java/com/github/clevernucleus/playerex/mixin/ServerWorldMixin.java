@@ -11,7 +11,7 @@ import net.minecraft.server.world.ServerWorld;
 abstract class ServerWorldMixin {
     
     // Redirect the "warn" method call in the "addEntity" method
-    @Redirect(method = "addEntity", at = @At(value = "INVOKE", remap = false, target = "Lorg/slf4j/Logger;warn(Ljava/lang/String;Ljava/lang/Object;)V"))
+    @Redirect(method = "addEntity", at = @At(value = "INVOKE", target = "Lorg/slf4j/Logger;warn(Ljava/lang/String;Ljava/lang/Object;)V"))
     private void playerex_addEntity(Logger logger, String arg0, Object arg1) {
         // Redirecting the "warn" method call to an empty method effectively disables the warning
         // This is a way to suppress or alter log messages during entity addition

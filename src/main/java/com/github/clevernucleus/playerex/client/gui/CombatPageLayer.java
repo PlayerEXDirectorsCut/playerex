@@ -232,6 +232,20 @@ public class CombatPageLayer extends PageLayer {
 
 			return tooltip;
 		}, 93, 59));
+		COMPONENTS.add(RenderComponent.of(() -> EntityAttributes_RangedWeapon.HASTE.attribute, value -> {
+			double disp = ClientUtil.displayValue(() -> EntityAttributes_RangedWeapon.HASTE.attribute, value);
+			return Text.translatable("playerex.gui.page.combat.text.ranged_haste",
+					ClientUtil.FORMATTING_2.format(disp - EntityAttributes_RangedWeapon.HASTE.attribute.getDefaultValue())).formatted(Formatting.DARK_GRAY);
+		}, value -> {
+			List<Text> tooltip = new ArrayList<Text>();
+
+			tooltip.add((Text.translatable("playerex.gui.page.combat.tooltip.ranged_haste[0]"))
+					.formatted(Formatting.GRAY));
+			tooltip.add((Text.translatable("playerex.gui.page.combat.tooltip.ranged_haste[1]"))
+					.formatted(Formatting.GRAY));
+
+			return tooltip;
+		}, 93, 70));
 		COMPONENTS.add(RenderComponent.of(ExAPI.ATTACK_RANGE, value -> {
 			return Text.translatable("playerex.gui.page.combat.text.attack_range",
 					ClientUtil.FORMATTING_2.format(3.0F + value)).formatted(Formatting.DARK_GRAY);

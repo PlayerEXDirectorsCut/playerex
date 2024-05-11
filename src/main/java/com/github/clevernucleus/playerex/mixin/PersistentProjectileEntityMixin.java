@@ -72,8 +72,6 @@ abstract class PersistentProjectileEntityMixin extends ProjectileEntity {
             }
         }
 
-        // Print the modified damage for debugging purposes
-        System.out.println("DAMAGE: " + damage);
         return damage;
     }
 }
