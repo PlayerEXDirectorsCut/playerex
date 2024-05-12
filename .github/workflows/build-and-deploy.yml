@@ -75,7 +75,7 @@ jobs:
             opc-directors-cut@0.6.5(embedded){modrinth:oLPaySSb}#(ignore:curseforge)#(ignore:github)
           # Modrinth has issues accepting javadocs right now
 
-          github-tag: "${{ steps.mod_version.outputs.mod_version }}"
+          github-tag: ${{ steps.mod_version.outputs.mod_version }}
           github-token: ${{ secrets.REPOSITORY_TOKEN }}
           github-commitish: ${{ steps.minecraft_version.outputs.minecraft_version }}/main
 
