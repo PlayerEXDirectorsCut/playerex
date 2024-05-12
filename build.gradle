@@ -70,8 +70,8 @@ dependencies {
 	}
 	
 	modImplementation include("eu.pb4:placeholder-api:${project.placeholder_api}")
-
-	modImplementation "maven.modrinth:ranged-weapon-api:${project.ranged_weapon_api_version}"
+  
+	modImplementation include("maven.modrinth:ranged-weapon-api:${project.ranged_weapon_api_version}")
 	
 	implementation 'net.objecthunter:exp4j:0.4.8'
 	include 'net.objecthunter:exp4j:0.4.8'

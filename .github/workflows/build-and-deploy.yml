@@ -79,8 +79,7 @@ jobs:
           github-token: ${{ secrets.REPOSITORY_TOKEN }}
           github-commitish: ${{ steps.minecraft_version.outputs.minecraft_version }}/main
 
-          version: "${{ steps.
-          .outputs.mod_version }}"
+          version: "${{ steps.outputs.mod_version }}"
           version-type: release
           changelog-file: CHANGELOG.md
 
