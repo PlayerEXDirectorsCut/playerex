@@ -62,7 +62,7 @@ jobs:
             data-attributes-directors-cut@1.6.0+1.20.1(required){modrinth:KCGxOJsE}{curseforge:955929}#(ignore:github)
             cloth-config@11.1.118(required){modrinth:9s6osm5g}{curseforge:348521}#(ignore:github)
             ranged_weapon_api@1.1.0+1.20.1(embedded){modrinth:AqaIIO6D}{curseforge:962162}#(ignore:github)
-            cardinal-components@5.4.0(embedded){modrinth:K01OU20C}{curseforge:318449}#(ignore:github)
+            cardinal-components@5.2.2(embedded){modrinth:K01OU20C}{curseforge:318449}#(ignore:github)
 
           modrinth-id: 4UKlJSdk
           modrinth-token: "${{ secrets.MODRINTH_TOKEN }}"
@@ -71,7 +71,7 @@ jobs:
             data-attributes-directors-cut@1.6.0+1.20.1(required){modrinth:KCGxOJsE}{curseforge:955929}#(ignore:github)
             cloth-config@11.1.118(required){modrinth:9s6osm5g}{curseforge:348521}#(ignore:github)
             ranged_weapon_api@1.1.0+1.20.1(embedded){modrinth:AqaIIO6D}{curseforge:962162}#(ignore:github)
-            cardinal-components@5.4.0(embedded){modrinth:K01OU20C}{curseforge:318449}#(ignore:github)
+            cardinal-components@5.2.2(embedded){modrinth:K01OU20C}{curseforge:318449}#(ignore:github)
             opc-directors-cut@0.6.5(embedded){modrinth:oLPaySSb}#(ignore:curseforge)#(ignore:github)
           # Modrinth has issues accepting javadocs right now
 
@@ -79,7 +79,7 @@ jobs:
           github-token: ${{ secrets.REPOSITORY_TOKEN }}
           github-commitish: ${{ steps.minecraft_version.outputs.minecraft_version }}/main
 
-          version: "${{ steps.mod_version.outputs.mod_version }}"
+          version: "${{ steps.outputs.mod_version }}"
           version-type: release
           changelog-file: CHANGELOG.md
 
