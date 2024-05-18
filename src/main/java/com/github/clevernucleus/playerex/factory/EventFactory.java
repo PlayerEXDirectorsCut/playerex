@@ -10,6 +10,7 @@ import com.github.clevernucleus.playerex.impl.DamageModificationImpl;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
@@ -81,12 +82,19 @@ public final class EventFactory {
 		Entity origin = source.getSource();
 		Entity attacker = source.getAttacker();
 
-		if (attacker instanceof LivingEntity
-				&& (origin instanceof LivingEntity || origin instanceof PersistentProjectileEntity)) {
+		if (attacker instanceof LivingEntity && (origin instanceof LivingEntity || origin instanceof PersistentProjectileEntity)) {
 			LivingEntity user = (LivingEntity) attacker;
-			DataAttributesAPI.ifPresent(user, ExAPI.LIFESTEAL, (Object) null, value -> {
-				user.heal((float) (original * value * 10.0));
-				return (Object) null;
+			DataAttributesAPI.ifPresent(user, ExAPI.LIFESTEAL, null, value -> {
+				if (value != 0.0F) {
+					if (Float.isNaN(original) || original >= user.getMaxHealth()) {
+						user.heal(user.getMaxHealth());
+					}
+					else {
+						double evaluated = original * value * 10.0;
+						user.heal((float) evaluated);
+					}
+				}
+				return null;
 			});
 		}
 
